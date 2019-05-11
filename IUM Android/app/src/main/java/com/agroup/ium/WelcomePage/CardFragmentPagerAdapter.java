@@ -1,4 +1,4 @@
-package com.agroup.ium;
+package com.agroup.ium.WelcomePage;
 
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -15,8 +15,6 @@ public class CardFragmentPagerAdapter extends FragmentStatePagerAdapter {
     private List<CardFragment_Welcome> fragments;
     private float baseElevation;
 
-    public final int ELEVATION_FACTOR = 8;
-
     public CardFragmentPagerAdapter(FragmentManager fragmentManager, float elevation) {
         super(fragmentManager);
 
@@ -24,7 +22,7 @@ public class CardFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
         this.baseElevation = elevation;
 
-        for (int i=0; i<3; i++) {
+        for (int i=0; i<4; i++) {
             addCardFragment(new CardFragment_Welcome());
         }
     }

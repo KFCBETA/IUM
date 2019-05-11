@@ -2,5 +2,8 @@
     <string name="app_name">IUM</string>
     <string name="welcomeActivity_headline">Welcome</string>
     <string name="cardViewTitle">CardView</string>
-    <string name="cardViewContent">CradView Content</string>
+    <string name="cardViewContent">CardView Content</string>
+    <string name="cardViewGuest">Guest</string>
+    <string name="cardViewLogIn">Log in</string>
+    <string name="mainTitle">Main Activity</string>
 </resources>

@@ -1,6 +1,5 @@
-package com.agroup.ium;
+package com.agroup.ium.WelcomePage;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -8,11 +7,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.agroup.ium.R;
+import com.agroup.ium.Util.ScreenUtil;
+
 public class WelcomeActivity extends AppCompatActivity {
 
+    private static final String TAG = WelcomeActivity.class.getSimpleName();
 
     private ImageView[] dotArray;
-    private int viewPagerSize = 3;
+    private int viewPagerSize = 4;
     private ImageView dotImage;
     private LinearLayout dotLinearLayout;
 
@@ -23,32 +26,41 @@ public class WelcomeActivity extends AppCompatActivity {
 
         ViewPager viewPager = (ViewPager)findViewById(R.id.welcomeActivity_viewpager);
 
-        CardFragmentPagerAdapter pagerAdapter = new CardFragmentPagerAdapter(getSupportFragmentManager(), dpToPixels(5,this));
-        ViewPagerTransformer viewPagerTransformer = new ViewPagerTransformer(viewPager, pagerAdapter);
+        CardFragmentPagerAdapter pagerAdapter = new CardFragmentPagerAdapter(getSupportFragmentManager(),
+                ScreenUtil.dpToPixels(5,this));
+        ViewPagerTransformer viewPagerTransformer = new ViewPagerTransformer(viewPager, pagerAdapter,this);
 
         viewPager.setAdapter(pagerAdapter);
         viewPager.setPageTransformer(false, viewPagerTransformer);
         viewPager.setOffscreenPageLimit(3);
+
+        dotLinearLayout = (LinearLayout)findViewById(R.id.welcomeActivity_dotLinearLayout);
 
         dotArray = new ImageView[viewPagerSize];
         for(int i=0; i<viewPagerSize; i++){
             dotImage = new ImageView(this);
             dotImage.setLayoutParams(new ViewGroup.LayoutParams(25,25));
             dotImage.setPadding(20,0,20,0);
+            dotArray[i] = dotImage;
             if(i == 0){
-                dotImage.setBackgroundResource(R.mipmap.dot_focused);
+                dotArray[i].setBackgroundResource(R.drawable.dot_focused);
             }
             else{
-                dotImage.setBackgroundResource(R.mipmap.dot_unfocueds);
+                dotArray[i].setBackgroundResource(R.drawable.dot_unfocueds);
             }
-            dotArray[i] = dotImage;
 
+            dotLinearLayout.addView(dotArray[i]);
         }
     }
 
 
-    public static float dpToPixels(int dp, Context context) {
-        return dp * (context.getResources().getDisplayMetrics().density);
+    public void changeDotPosition(int position){
+        for(int i=0; i<viewPagerSize; i++){
+            dotArray[i].setBackgroundResource(R.drawable.dot_focused);
+            if(i != position){
+                dotArray[i].setBackgroundResource(R.drawable.dot_unfocueds);
+            }
+        }
     }
 
 

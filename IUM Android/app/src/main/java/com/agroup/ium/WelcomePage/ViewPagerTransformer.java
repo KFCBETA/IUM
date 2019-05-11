@@ -1,9 +1,12 @@
-package com.agroup.ium;
+package com.agroup.ium.WelcomePage;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
 import android.view.View;
+
+import com.agroup.ium.Util.Constant;
 
 public class ViewPagerTransformer implements ViewPager.OnPageChangeListener, ViewPager.PageTransformer {
 
@@ -12,12 +15,15 @@ public class ViewPagerTransformer implements ViewPager.OnPageChangeListener, Vie
     private ViewPager viewPager;
     private float lastOffset;
     private CardFragmentPagerAdapter cardFragmentPagerAdapter;
+    private Activity currentActivity;
+    private boolean firstCreate = true;
 
 
-    public ViewPagerTransformer(ViewPager viewPager, CardFragmentPagerAdapter adapter){
+    public ViewPagerTransformer(ViewPager viewPager, CardFragmentPagerAdapter adapter, Activity activity){
         this.viewPager = viewPager;
         viewPager.addOnPageChangeListener(this);
         this.cardFragmentPagerAdapter = adapter;
+        this.currentActivity = activity;
 
     }
 
@@ -32,6 +38,10 @@ public class ViewPagerTransformer implements ViewPager.OnPageChangeListener, Vie
         //Check if user scroll tp right
         boolean scrollRight = lastOffset > positionOffset;
 
+        if(firstCreate){
+            firstCreate = false;
+            return;
+        }
 
         if(scrollRight){
             currentPosition = position + 1;
@@ -52,13 +62,13 @@ public class ViewPagerTransformer implements ViewPager.OnPageChangeListener, Vie
         CardView currentCard = cardFragmentPagerAdapter.getCardView(currentPosition);
         if(currentCard != null){
             currentCard.setCardElevation(baseElevation +
-                    baseElevation*(cardFragmentPagerAdapter.ELEVATION_FACTOR)*(1-realOffset));
+                    baseElevation*(Constant.ELEVATION_FACTOR)*(1-realOffset));
         }
 
         CardView nextCard = cardFragmentPagerAdapter.getCardView(nextPosition);
         if(nextCard != null){
             nextCard.setCardElevation(baseElevation +
-                    baseElevation*(cardFragmentPagerAdapter.ELEVATION_FACTOR)*(1-realOffset));
+                    baseElevation*(Constant.ELEVATION_FACTOR)*(1-realOffset));
         }
 
 
@@ -66,8 +76,8 @@ public class ViewPagerTransformer implements ViewPager.OnPageChangeListener, Vie
     }
 
     @Override
-    public void onPageSelected(int i) {
-
+    public void onPageSelected(int position) {
+        ((WelcomeActivity)currentActivity).changeDotPosition(position);
     }
 
     @Override
