@@ -6,4 +6,12 @@
     <string name="cardViewGuest">Guest</string>
     <string name="cardViewLogIn">Log in</string>
     <string name="mainTitle">Main Activity</string>
+    <string name="navigation_header">Header</string>
+    <string name="navigation_item">Item</string>
+
+    <string-array name="user_option">
+        <item>Main Page</item>
+        <item>My Favorite</item>
+        <item>Download</item>
+    </string-array>
 </resources>

@@ -33,8 +33,7 @@
         app:layout_constraintBottom_toTopOf="@id/welcomeActivity_dotLinearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeActivity_headline"
-        android:background="@color/colorTest"/>
+        app:layout_constraintTop_toBottomOf="@+id/welcomeActivity_headline"/>
 
 
     <LinearLayout
