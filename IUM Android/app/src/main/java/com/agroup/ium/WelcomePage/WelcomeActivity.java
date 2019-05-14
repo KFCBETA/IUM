@@ -3,6 +3,7 @@ package com.agroup.ium.WelcomePage;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,6 +19,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private int viewPagerSize = 4;
     private ImageView dotImage;
     private LinearLayout dotLinearLayout;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +48,15 @@ public class WelcomeActivity extends AppCompatActivity {
                 dotArray[i].setBackgroundResource(R.drawable.dot_focused);
             }
             else{
-                dotArray[i].setBackgroundResource(R.drawable.dot_unfocueds);
+                dotArray[i].setBackgroundResource(R.drawable.dot_unfocued);
             }
 
             dotLinearLayout.addView(dotArray[i]);
         }
+
+        toolbar = (Toolbar)findViewById(R.id.welcomeActivity_toolbar);
+        setSupportActionBar(toolbar);
+
     }
 
 
@@ -58,7 +64,7 @@ public class WelcomeActivity extends AppCompatActivity {
         for(int i=0; i<viewPagerSize; i++){
             dotArray[i].setBackgroundResource(R.drawable.dot_focused);
             if(i != position){
-                dotArray[i].setBackgroundResource(R.drawable.dot_unfocueds);
+                dotArray[i].setBackgroundResource(R.drawable.dot_unfocued);
             }
         }
     }

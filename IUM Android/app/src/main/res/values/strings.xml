@@ -6,12 +6,26 @@
     <string name="cardViewGuest">Guest</string>
     <string name="cardViewLogIn">Log in</string>
     <string name="mainTitle">Main Activity</string>
-    <string name="navigation_header">Header</string>
+    <string name="navigation_header_username">User Name</string>
     <string name="navigation_item">Item</string>
+    <string name="searchHint">Search Hint</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="favorite">Favorite</string>
+    <string name="navigation_header_usertag">\@usertag</string>
+    <string name="setting">Setting</string>
+    <string name="account">Account</string>
+    <string name="post">Post</string>
 
     <string-array name="user_option">
         <item>Main Page</item>
         <item>My Favorite</item>
         <item>Download</item>
+    </string-array>
+
+    <string-array name="user_icon">
+        <item>home_focused</item>
+        <item>favorite_focused</item>
+        <item>download</item>
     </string-array>
 </resources>

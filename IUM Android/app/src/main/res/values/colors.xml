@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#303f9f</color>
+    <color name="colorPrimaryDark">#001970</color>
+    <color name="colorAccent">#E9666AD1</color>
+    <color name="colorLight">#B90084F7</color>
     <color name="colorTest">#630084F7</color>
-    <color name="shadow">#A9A9A9</color>
+    <color name="colorShadow">#A9A9A9</color>
+    <color name="colorActionBarTitle">#ED22AD1D</color>
+    <color name="colorUserName">#E8070606</color>
+    <color name="colorUserTag">#A9070606</color>
 </resources>

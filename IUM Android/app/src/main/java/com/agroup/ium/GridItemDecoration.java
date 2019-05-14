@@ -11,15 +11,19 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
     private int mColumnCount;
     //Vertical Spacing between item
     private int mVerticalSpacing;
-    //Horizon Spacing between item
-    private int mHorizonSpacing;
+    //Left Spacing between item
+    private int mLeftSpacing;
+    //Right Spacing between item
+    private int mRightSpacing;
     //Do spacing between item or not (vertical)
     private boolean isSpacing;
 
-    public GridItemDecoration(int spanCount, int verticalSpacing, int horizonSpacing, boolean includeEdge) {
+    public GridItemDecoration(int spanCount, int verticalSpacing
+            , int leftSpacing, int rightSpacing, boolean includeEdge) {
         this.mColumnCount = spanCount;
         this.mVerticalSpacing = verticalSpacing;
-        this.mHorizonSpacing = horizonSpacing;
+        this.mLeftSpacing = leftSpacing;
+        this.mRightSpacing = rightSpacing;
         this.isSpacing = includeEdge;
     }
 
@@ -34,9 +38,9 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
 
         if(isSpacing){
             //Add left spacing
-            outRect.left = mHorizonSpacing - column*mHorizonSpacing/mColumnCount;
+            outRect.left = mLeftSpacing - column*mLeftSpacing/mColumnCount;
             //Add right spacing
-            outRect.right = (column+1)*mHorizonSpacing/mColumnCount;
+            outRect.right = (column+1)*mRightSpacing/mColumnCount;
 
             //If item is in the first row
             if(position < mColumnCount){
@@ -47,9 +51,9 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
         }
         else {
             //Add left spacing
-            outRect.left = column*mHorizonSpacing/mColumnCount;
+            outRect.left = column*mLeftSpacing/mColumnCount;
             //Add right spacing
-            outRect.right = mHorizonSpacing - (column+1)*mHorizonSpacing/mColumnCount;
+            outRect.right = mRightSpacing - (column+1)*mRightSpacing/mColumnCount;
 
             //If item is in the first row
             if(position < mColumnCount){
