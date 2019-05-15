@@ -16,6 +16,8 @@
     <string name="setting">Setting</string>
     <string name="account">Account</string>
     <string name="post">Post</string>
+    <string name="mainPage_date">19:20</string>
+    <string name="mainPage_Content">1111111111111111111111111111111111111111111111111111111111111111111111</string>
 
     <string-array name="user_option">
         <item>Main Page</item>

@@ -3,4 +3,7 @@
     <dimen name="viewpager_padding">5dp</dimen>
     <dimen name="navigation_header_username">20sp</dimen>
     <dimen name="navigation_header_usertag">14sp</dimen>
+    <dimen name="mainPage_userName">20sp</dimen>
+    <dimen name="mainPage_date">15sp</dimen>
+    <dimen name="mainPage_content">16sp</dimen>
 </resources>
