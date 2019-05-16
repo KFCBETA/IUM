@@ -5,10 +5,14 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.BottomSheetDialog;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,10 +25,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.agroup.ium.WelcomePage.WelcomeActivity;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,17 +44,19 @@ public class MainActivity extends AppCompatActivity {
     private NavigationAdapter navigation_Adapter;
     private Toolbar toolbar;
     private ConstraintLayout setting;
+    private DrawerLayout drawerLayout_Main;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        drawerLayout_Main = (DrawerLayout)findViewById(R.id.mainActivity_DrawerLayout);
+
         navigationView_Left = (NavigationView)findViewById(R.id.mainActivity_NavigationView);
         headerLayout = navigationView_Left.getHeaderView(0);
-
-
-
 
         //TODO: Load user information
         //Load User Image and crop it to round shape
@@ -69,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+
+
         //Get RecyclerView in navigationView
         navigation_RecyclerView = (RecyclerView)findViewById(R.id.navigation_RecyclerView);
         //Setup adapter for user option
@@ -78,8 +89,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         navigation_RecyclerView.setLayoutManager(layoutManager);
         //Setup the divider
-        GridItemDecoration gridItemDecoration =
-                new GridItemDecoration(1,32,0, 16, true);
+        GridItemDecoration gridItemDecoration = new GridItemDecoration(1,32,0, 16, true);
         navigation_RecyclerView.addItemDecoration(gridItemDecoration);
 
         //Toolbar in the App
@@ -94,35 +104,59 @@ public class MainActivity extends AppCompatActivity {
         ImageView imageView_Setting = (ImageView)setting.findViewById(R.id.navigation_itemImage);
         imageView_Setting.setBackgroundResource(R.drawable.setting);
 
-
         //Set bottom navigation listener
         navigationView_Bottom = (BottomNavigationView)findViewById(R.id.mainActivity_BottomNavigationView);
         navigationView_Bottom.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            public boolean onNavigationItemSelected(@NonNull final MenuItem menuItem) {
                 //Used for fragment transaction
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 switch (menuItem.getItemId()){
                     case R.id.bottom_navi_home:
+                        Log.e(TAG, "Home Clicked" );
                         Fragment fragment_main = new MainFragment();
                         fragmentTransaction.replace(R.id.container_main, fragment_main);
                         fragmentTransaction.commit();
                         break;
                     case R.id.bottom_navi_search:
+                        Log.e(TAG, "Search Clicked" );
                         break;
                     case R.id.bottom_navi_post:
+                        Log.e(TAG, "Post Clicked" );
                         break;
                     case R.id.bottom_navi_account:
+                        Log.e(TAG, "Account Clicked" );
                         break;
                 }
                 return true;
             }
         });
 
+
         //Initialize home page
         navigationView_Bottom.setSelectedItemId(R.id.bottom_navi_home);
 
+        View view = findViewById(R.id.bottom_navi_account);
+        view.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+//                sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
+//                View view = getLayoutInflater().inflate(R.layout.homepage_bottom_sheet,null);
+//                BottomSheetDialog dialog = new BottomSheetDialog(MainActivity.this);
+//                dialog.setContentView(view);
+//                dialog.show();
+
+                MainBottomFragment mainBottomFragment = new MainBottomFragment();
+                mainBottomFragment.show(getSupportFragmentManager(),mainBottomFragment.getTag());
+
+                return false;
+            }
+        });
+
     }
+
+
 
     public BottomNavigationView getNavigationView_Bottom() {
         return navigationView_Bottom;

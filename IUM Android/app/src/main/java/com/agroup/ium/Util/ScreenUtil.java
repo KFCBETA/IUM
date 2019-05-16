@@ -4,7 +4,7 @@ import android.content.Context;
 
 public class ScreenUtil {
 
-    public static float dpToPixels(int dp, Context context) {
+    public static float dpToPixels(float dp, Context context) {
         return dp * (context.getResources().getDisplayMetrics().density);
     }
 }

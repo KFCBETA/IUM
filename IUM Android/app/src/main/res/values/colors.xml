@@ -4,9 +4,12 @@
     <color name="colorPrimaryDark">#001970</color>
     <color name="colorAccent">#E9666AD1</color>
     <color name="colorLight">#B90084F7</color>
-    <color name="colorTest">#630084F7</color>
+    <color name="colorTest">#660084F7</color>
+    <color name="colorTestDarker">#FF0084F7</color>
     <color name="colorShadow">#A9A9A9</color>
     <color name="colorActionBarTitle">#ED22AD1D</color>
     <color name="colorUserName">#E8070606</color>
     <color name="colorUserTag">#A9070606</color>
+    <color name="colorShadowLight">#80A9A9A9</color>
+
 </resources>
