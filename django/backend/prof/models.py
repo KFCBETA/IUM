@@ -8,7 +8,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    user_name = models.CharField(max_length = 50)
+    user_name = models.CharField(max_length=50)
     user_bio = models.TextField()
 
     def __str__(self):
@@ -16,8 +16,10 @@ class Profile(models.Model):
 
 
 class Account(models.Model):
-    account_id = models.CharField(max_length = 100)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    account = models.CharField()
+    password = models.CharField()
+    api_key = models.CharField()
     # TODO: what else
 
     def __str__(self):
