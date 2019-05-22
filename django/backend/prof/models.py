@@ -17,9 +17,9 @@ class Profile(models.Model):
 
 class Account(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    account = models.CharField()
-    password = models.CharField()
-    api_key = models.CharField()
+    account = models.CharField(max_length=50)
+    password = models.CharField(max_length=50)
+    api_key = models.CharField(max_length=50)
     # TODO: what else
 
     def __str__(self):
