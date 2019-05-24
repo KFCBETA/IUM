@@ -1,4 +1,4 @@
-package com.agroup.ium;
+package com.agroup.ium.Structure;
 
 public class PostStructure {
 

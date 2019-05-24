@@ -1,6 +1,8 @@
-package com.agroup.ium;
+package com.agroup.ium.Structure;
 
 public class UserStructure {
+
+    //TODO: Change User Structure
 
     private String userName;
     private String userImage;

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/loginPageFragment_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="@dimen/loginPage_Title"
+        android:layout_marginTop="88dp"
+        android:text="@string/login_Title"
+        android:fontFamily="@font/roboto_condensed_family"/>
+
+    <EditText
+        android:id="@+id/loginPageFragment_UserName"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/loginPageFragment_Title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:inputType="textNoSuggestions"
+        android:hint="@string/userNameHint"
+        android:textSize="20sp"
+        android:fontFamily="@font/roboto_condensed_family"
+        android:textStyle="italic"/>
+
+    <EditText
+        android:id="@+id/loginPageFragment_UserPass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/loginPageFragment_UserName"
+        app:layout_constraintTop_toBottomOf="@id/loginPageFragment_UserName"
+        app:layout_constraintEnd_toStartOf="@id/loginPageFragment_ShowPass"
+        android:layout_marginTop="16dp"
+        android:inputType="textPassword"
+        android:hint="@string/userPassHint"
+        android:textSize="20sp"
+        android:fontFamily="@font/roboto_condensed_family"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/loginPageFragment_ShowPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/loginPageFragment_UserPass"
+        app:layout_constraintEnd_toEndOf="@id/loginPageFragment_UserName"
+        app:layout_constraintTop_toBottomOf="@id/loginPageFragment_UserName"
+        android:layout_marginTop="16dp"
+        android:text="@string/login_Show"/>
+
+
+    <Button
+        android:id="@+id/loginPageFragment_EnterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="32dp"
+        android:text="@string/loginButton"
+        android:textSize="20sp"
+        android:fontFamily="@font/roboto_condensed_family"/>
+
+
+</android.support.constraint.ConstraintLayout>

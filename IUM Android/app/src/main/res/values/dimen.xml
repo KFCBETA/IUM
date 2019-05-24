@@ -6,4 +6,5 @@
     <dimen name="mainPage_userName">20sp</dimen>
     <dimen name="mainPage_date">15sp</dimen>
     <dimen name="mainPage_content">16sp</dimen>
+    <dimen name="loginPage_Title">32sp</dimen>
 </resources>

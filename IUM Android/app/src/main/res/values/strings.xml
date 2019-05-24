@@ -18,6 +18,12 @@
     <string name="post">Post</string>
     <string name="mainPage_date">19:20</string>
     <string name="mainPage_Content">main page content</string>
+    <string name="login_Title">Login</string>
+    <string name="userNameHint">User Name</string>
+    <string name="userPassHint">Password</string>
+    <string name="loginButton">Enter</string>
+    <string name="login_Show">Show</string>
+    <string name="login_Hide">Hide</string>
 
     <string-array name="user_option">
         <item>Main Page</item>

@@ -2,6 +2,7 @@ package com.agroup.ium.WelcomePage;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
 import android.view.View;
@@ -15,15 +16,15 @@ public class ViewPagerTransformer implements ViewPager.OnPageChangeListener, Vie
     private ViewPager viewPager;
     private float lastOffset;
     private CardFragmentPagerAdapter cardFragmentPagerAdapter;
-    private Activity currentActivity;
+    private Fragment currentFragment;
     private boolean firstCreate = true;
 
 
-    public ViewPagerTransformer(ViewPager viewPager, CardFragmentPagerAdapter adapter, Activity activity){
+    public ViewPagerTransformer(ViewPager viewPager, CardFragmentPagerAdapter adapter, Fragment fragment){
         this.viewPager = viewPager;
         viewPager.addOnPageChangeListener(this);
         this.cardFragmentPagerAdapter = adapter;
-        this.currentActivity = activity;
+        this.currentFragment = fragment;
 
     }
 
@@ -77,7 +78,7 @@ public class ViewPagerTransformer implements ViewPager.OnPageChangeListener, Vie
 
     @Override
     public void onPageSelected(int position) {
-        ((WelcomeActivity)currentActivity).changeDotPosition(position);
+        ((WelcomeFragment)currentFragment).changeDotPosition(position);
     }
 
     @Override

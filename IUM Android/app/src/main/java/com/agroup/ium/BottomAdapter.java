@@ -1,16 +1,15 @@
 package com.agroup.ium;
 
 import android.content.Context;
-import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.agroup.ium.Structure.UserStructure;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
@@ -41,7 +40,7 @@ public class BottomAdapter extends RecyclerView.Adapter<BottomAdapter.BottomView
     @Override
     public void onBindViewHolder(@NonNull BottomViewHolder bottomViewHolder, int position) {
 
-        Log.e(TAG, "Position = " + position + "  " + userArray.get(position).getUserImage());
+//        Log.e(TAG, "Position = " + position + "  " + userArray.get(position).getUserImage());
 
         if(position == 0){
             bottomViewHolder.imageView_dot.setBackgroundResource(R.drawable.dot_focused);
