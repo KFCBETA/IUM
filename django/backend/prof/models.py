@@ -11,6 +11,12 @@ class Profile(models.Model):
     user_name = models.CharField(max_length=50)
     user_bio = models.TextField()
 
+    def save(self, **kwargs):
+        if not self.user_name:
+            self.user_name = self.user.get_username()
+        super(Profile, self).save(**kwargs)
+        #Account.objects.create(profile=self)
+
     def __str__(self):
         return "User name: %s, bio: %s" % (self.user_name, self.user_bio)
 
