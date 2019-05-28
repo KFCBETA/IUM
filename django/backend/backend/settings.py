@@ -11,6 +11,13 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import configparser
+
+# Retrieve sensitive data from ini file
+config = configparser.ConfigParser()
+config.read("backend/info.ini")
+key = config.get('Key', 'Secret_key')
+dbpw = config.get('Dbinfo', 'Dbpassword')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-$_w9u6422-zfeps3k^o#o2ym*l#45q+f0po-fx*k6fxfbs6(q'
+SECRET_KEY = key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -79,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'projectdb',
         'USER': 'test',
-        'PASSWORD': 'testpw',
+        'PASSWORD': dbpw,
         'HOST': 'localhost',
         'PORT': '5432',
     }
