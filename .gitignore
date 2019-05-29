@@ -189,5 +189,11 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-#pycharm idea file
+# pycharm idea file
 /django/backend/.idea
+
+# django migrations
+/django/backend/prof/migrations
+
+# info file
+/django/backend/backend/info.ini

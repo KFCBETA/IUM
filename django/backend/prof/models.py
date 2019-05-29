@@ -18,7 +18,8 @@ class Profile(models.Model):
         #Account.objects.create(profile=self)
 
     def __str__(self):
-        return "User name: %s, bio: %s" % (self.user_name, self.user_bio)
+        #return "User name: %s, bio: %s" % (self.user_name, self.user_bio)
+        return self.user_name
 
 
 class Account(models.Model):
@@ -36,4 +37,4 @@ def create_user_profile(sender, instance, created, **kwargs):
     try:
         instance.profile.save()
     except ObjectDoesNotExist:
-        Profile.objects.create(user=instance)
+        Profile.objects.create(user=instance, user_name=instance.get_username())

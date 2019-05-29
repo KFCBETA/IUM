@@ -20,4 +20,6 @@ urlpatterns = [
     path('', include('prof.urls', namespace='prof')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+    ## Use default django auth urls
+    #path('api-auth/', include('rest_framework.urls')),
 ]
