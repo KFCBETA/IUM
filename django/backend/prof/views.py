@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from rest_framework import viewsets, permissions
+from .permissions import IsOwnerOrSuOrReadOnly
 from .models import Profile, Account
 from .serializers import ProfileSerializer, UserSerializer
 import requests
@@ -10,7 +11,8 @@ import requests
 class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated,
+                          IsOwnerOrSuOrReadOnly)
 
 # Create your views here.
 def index(request):
