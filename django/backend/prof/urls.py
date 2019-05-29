@@ -3,7 +3,7 @@ from . import views
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register('user', views.UserView)
+router.register('_alluser', views.AllUserView, basename='alluser')
 
 app_name = 'prof' # required since Django 2.0
 urlpatterns = [
